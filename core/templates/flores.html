@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block center %}
+
+<a href="{% url 'index' %}" class="btn btn-dark">Voltar</a>
+
+
+{% for postagem in postagens %}
+    <div class="list">
+        <div class="lista">
+            <a href="{% url 'detalhe' id=postagem.id %}" class="link">
+                <img src="{{ postagem.imagem.url }}" alt="" width="250px">
+                <h3>{{ postagem.titulo }}</h3>
+            </a>
+{% endfor %}
+
+
+{% endblock %}
