@@ -12,8 +12,8 @@ def caatinga(request):
 def flora(request):
     return render(request, 'flora.html', context={})
 
-def rn(request):
-    return render(request, 'rn.html', context={})
+def estado(request):
+    return render(request, 'estado.html', context={})
 
 def listagem(request):
     postagem = Postagem.objects.all()
@@ -23,3 +23,6 @@ def listagem(request):
 def detalhe(request, id):
     postagem = get_object_or_404(Postagem, id=id)
     return render(request, 'detalhe.html', context={'postagem':postagem})
+
+def form(request):
+    return render(request, 'forms.html', context={})

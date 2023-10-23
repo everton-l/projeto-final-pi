@@ -18,14 +18,15 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
-from core.views import index, caatinga, rn, flora, listagem, detalhe
+from core.views import index, caatinga, flora, listagem, detalhe, form, estado
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('flora/', flora, name='flora'),
     path('caatinga/', caatinga, name='caatinga'),
-    path('rn/', rn, name='rn'),
+    path('estado/', estado, name='estado'),
     path('listagem-flores/', listagem, name='listagem'),
-    path('detalhe/<int:id>/', detalhe, name='detalhe')
+    path('detalhe/<int:id>/', detalhe, name='detalhe'),
+    path('form/', form, name='form'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

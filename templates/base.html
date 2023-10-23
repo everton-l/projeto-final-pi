@@ -18,16 +18,18 @@
         </div>
 
         <div class="rigth">
-            <div class="search">
-                <input class="form-control me-2" type="text" id="search" placeholder="Pesquisar">
-                <img src="{% static 'imagens/lupa.png' %}" alt="" width="26px" height="27">
+            <div class="search" style="width: 45%;">
+                <input class="form-control me-2" type="text" id="search" placeholder="Pesquisar" style="width: 70%;">
+                <img src="{% static 'imagens/lupa.png' %}" alt="" width="26px" height="27" class="figure-img img-fluid rounded">
             </div>
+
+
             <nav>
                 <ul>
                     <a class="a" href="{% url 'listagem' %}"><li class="nav-link active"></li>Flores</a>
                     <a class="a" href=""><li class="nav-link active"></li>Arvores apicolas</a>
                     <a class="a" href=""><li class="nav-link active"></li>Abelhas</a>
-                    <a class="a" href=""><li class="nav-link active"></li></a>
+                    <a class="a" href="{% url 'form' %}"><li class="nav-link active"></li>Formulário</a>
                 </ul>
             </nav>
         </div>
@@ -41,17 +43,19 @@
     <div class="footer">
         <h5>Contato:</h5>
         <p>Tel: (00) 0000-0000</p>
-        <a href="" class="fot">
-            <img src="img/instagram (2).png" alt="instagram" width="20px" class="figure-img img-fluid rounded">
+
+        <a href="" class="fot" style="display: flex;">
+            <img src="{% static 'imagens/instagram (2).png' %}" alt="instagram" width="20px" class="figure-img img-fluid rounded">
             <p>Instagram</p>
         </a>
-        <a href="" class="fot">
-            <img src="img/twitter.png" alt="twitter" width="20px" class="figure-img img-fluid rounded">
+
+        <a href="" class="fot" style="display: flex;">
+            <img src="{% static 'imagens/twitter.png' %}" alt="twitter" width="20px" class="figure-img img-fluid rounded">
             <p>Twitter</p>
         </a>
     </div>
 
-    <div class="footer">
+    <div class="footer" style="width: 20%;">
         <h5>Sobre nós:</h5>
         <p>Alunos do IFRN campus Pau dos Ferros, cursando o ensino médio integrado com técnico em informática</p>
     </div>
