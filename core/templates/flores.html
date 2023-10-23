@@ -3,17 +3,22 @@
 
 {% block center %}
 
-<a href="{% url 'index' %}" class="btn btn-dark">Voltar</a>
+<main class="main" style="display: flex;
+                        height: 70vh;">
+    <a href="{% url 'index' %}" class="btn btn-dark" style="max-height: 4.5vh;">Voltar</a>
 
 
-{% for postagem in postagens %}
-    <div class="list">
-        <div class="lista">
-            <a href="{% url 'detalhe' id=postagem.id %}" class="link">
-                <img src="{{ postagem.imagem.url }}" alt="" width="250px">
-                <h3>{{ postagem.titulo }}</h3>
-            </a>
-{% endfor %}
+    {% for postagem in postagens %}
+        <div class="list">
+            <div class="lista">
+                <a href="{% url 'detalhe' id=postagem.id %}" class="link">
+                    <img src="{{ postagem.imagem.url }}" alt="" width="250px">
+                    <h3>{{ postagem.titulo }}</h3>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</main>
 
 
 {% endblock %}

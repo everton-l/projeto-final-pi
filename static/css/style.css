@@ -127,14 +127,7 @@ nav{
     height: 150px;
 }
 
-.list{
-    margin: auto;
-    display: flex;
-    width: 100%;
-    height: 60vh;
-    justify-content: space-evenly;
-    align-items: center;
-}
+
 
 .link{
     background-color: white;
@@ -225,3 +218,4 @@ h5{
 .fot{
     display: flex;
 }
+
