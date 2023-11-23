@@ -11,8 +11,8 @@
         {% for postagem in postagens %}
         <div class="list">
             <div class="lista">
-                <a href="{% url 'detalhe' id=postagem.id %}" class="link">
-                    <img src="{{ postagem.imagem.url }}" alt="" width="250px">
+                <a href="{% url 'detalhe' id=flor.id %}" class="link">
+                    <img src="{{ flor.imagem.url }}" alt="" width="250px">
                     <h3>{{ postagem.titulo }}</h3>
                 </a>
             </div>

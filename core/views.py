@@ -1,28 +1,36 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Postagem
+from django.views.generic import TemplateView, UpdateView, CreateView, DeleteView, ListView, DetailView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'index.html', context={})
+class IndexView(TemplateView):
+    template_name = "index.html"
 
-def caatinga(request):
-    return render(request, 'caatinga.html', context={})
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
-def flora(request):
-    return render(request, 'flora.html', context={})
+class FlorDetalhe(DetailView):
+    model = Postagem
+    template_name = 'detalhe.html'
+    context_object_name = 'flor'
 
-def estado(request):
-    return render(request, 'estado.html', context={})
+class FlorListar(ListView):
+    model = Postagem
+    template_name = 'flores.html'
+    context_object_name = 'flor'
+    paginate_by = 5
 
-def listagem(request):
-    postagem = Postagem.objects.all()
-    context = {'postagens' : postagem}
-    return render(request, 'flores.html', context)
+    def flor_detalhe(request, id):
+        return FlorDetalhe.as_view()(request, id=id)
 
-def detalhe(request, id):
-    postagem = get_object_or_404(Postagem, id=id)
-    return render(request, 'detalhe.html', context={'postagem':postagem})
 
-def form(request):
-    return render(request, 'forms.html', context={})
+class FlorCriar(CreateView):
+    template_name = 'forms.html'
+    form_class = Postagem
+    success_url = reverse_lazy('flor_listar')
+    
+    def get_success_url(self):
+        return reverse_lazy('flor_listar')
