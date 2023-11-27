@@ -24,6 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name='index'),
     path('listagem-flores/', views.FlorListar.as_view(), name='listagem'),
-    path('detalhe/<int:id>/', views.FlorDetalhe.as_view(), name='detalhe'),
-    path('form/', views.FlorCriar.as_view(), name='form'),
+    path('detalhe/<int:pk>/', views.FlorDetalhe.as_view(), name='detalhe'),
+    path('form/', views.PostagemCriar.as_view(), name='form')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

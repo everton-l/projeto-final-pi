@@ -8,12 +8,12 @@
 
 
     <div class="main">
-        {% for postagem in postagens %}
+        {% for flor in flor %}
         <div class="list">
             <div class="lista">
-                <a href="{% url 'detalhe' id=flor.id %}" class="link">
+                <a href="{% url 'detalhe' pk=flor.id %}" class="link">
                     <img src="{{ flor.imagem.url }}" alt="" width="250px">
-                    <h3>{{ postagem.titulo }}</h3>
+                    <h3>{{ flor.nome_popular }}</h3>
                 </a>
             </div>
         </div>
