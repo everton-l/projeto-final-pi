@@ -17,10 +17,12 @@ class FlorListar(ListView):
     model = Flores
     template_name = 'flores.html'
     context_object_name = 'flor'
-    paginate_by = 5
+    paginate_by = 2
 
-    def flor_detalhe(request, id):
-        return FlorDetalhe.as_view()(request, id=id)
+class FlorDetalhe(DetailView):
+    model = Flores
+    template_name = 'detalhe.html'
+    context_object_name = 'flor'
 
 
 class FlorCriar(CreateView):
@@ -39,11 +41,6 @@ class FlorEditar(UpdateView):
     
     def get_success_url(self):
         return reverse_lazy('flor_listar')
-
-class FlorDetalhe(DetailView):
-    model = Flores
-    template_name = 'detalhe.html'
-    context_object_name = 'flor'
 
 class FlorRemover(DeleteView):
     model = Flores

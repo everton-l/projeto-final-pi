@@ -7,56 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina inicial</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block style %}{% endblock %}
     
 </head>
 <body>
     <header>
         <div class="logo">
             <img src="{% static 'imagens/abelha.png' %}" alt="logo" width="80px" class="figure-img img-fluid rounded">
-            <h1>Flora Apícola no Semiárido Potiguar</h1>
+            <h2>DiversiFlora</h2>
         </div>
 
-        <div class="rigth">
-            <div class="search" style="width: 45%;">
-                <input class="form-control me-2" type="text" id="search" placeholder="Pesquisar" style="width: 70%;">
-                <img src="{% static 'imagens/lupa.png' %}" alt="" width="26px" height="27" class="figure-img img-fluid rounded">
-            </div>
+        <nav>
+            <ul>
+                <a class="a" href="{% url 'listagem' %}"><li class="nav-link active"></li>Catalogo</a>
+                <a class="a" href=""><li class="nav-link active"></li>O que é</a>
+                <a class="a" href=""><li class="nav-link active"></li>Sobre nós</a>
+            </ul>
+        </nav>
 
-
-            <nav>
-                <ul>
-                    <a class="a" href="{% url 'listagem' %}"><li class="nav-link active"></li>Flores</a>
-                    <a class="a" href=""><li class="nav-link active"></li>Arvores apicolas</a>
-                    <a class="a" href=""><li class="nav-link active"></li>Abelhas</a>
-                    <a class="a" href="{% url 'form' %}"><li class="nav-link active"></li>Adicionar item</a>
-                </ul>
-            </nav>
+        <div class="search">
+            <input class="form-control me-2" type="text" id="search" placeholder="Pesquisar">
+            <img src="{% static 'imagens/lupa.png' %}" alt="" width="26px" height="27">
         </div>
+
 
     </header>
 
 {% block center %}
 {% endblock %}
+    
+    <footer>
+        <nav>
+            <ul>
+                <a href="{% url 'listagem' %}"><li>Catalogo</li></a>
+                <a href=""><li>O que é</li></a>
+                <a href=""><li>Sobre nós</li></a>
+            </ul>
+        </nav>
+    </footer>
 
-<footer>
-    <div class="footer">
-        <h5>Contato:</h5>
-        <p>Tel: (00) 0000-0000</p>
-
-        <a href="" class="fot" style="display: flex;">
-            <img src="{% static 'imagens/instagram (2).png' %}" alt="instagram" width="20px" class="figure-img img-fluid rounded">
-            <p>Instagram</p>
-        </a>
-
-        <a href="" class="fot" style="display: flex;">
-            <img src="{% static 'imagens/twitter.png' %}" alt="twitter" width="20px" class="figure-img img-fluid rounded">
-            <p>Twitter</p>
-        </a>
-    </div>
-
-    <div class="footer" style="width: 20%;">
-        <h5>Sobre nós:</h5>
-        <p>Alunos do IFRN campus Pau dos Ferros, cursando o ensino médio integrado com técnico em informática</p>
-    </div>
-</footer>
+</body>
+</html>

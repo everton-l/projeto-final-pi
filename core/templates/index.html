@@ -1,44 +1,50 @@
 {% extends 'base.html' %}
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% block center %}
 
 <main>
-    <a href="#" class="container-fluid">
-        <div class="container-fluid post1">
-            <img src="{% static 'imagens/transferir.jpg' %}" alt="" class="figure-img img-fluid rounded">
-            
-            <div class="container">
-                <h3>Caatinga</h3>
-                <p>O Bioma brasileiro que caracteriza o Semiárido Potiguar </p>
-            </div>
+    <div class="init">
+        <div class="container-fluid">
+            <section>
+                <h1>CATÁLOGO DA</h1>
+                <h1 class="flora">FLORA APÍCOLA</h1>
+                <h1>NO SEMIÁRIDO POTIGUAR</h1>
+                <p>Um catálogo que reúne em um único lugar as plantas que compõem a Flora Apícola da região 
+                    semiárida do Rio Gande do Norte.</p>
+            </section>
+
+            <section>
+                <img src="{% static 'imagens/Honey_Bee_Insect_Honeycomb_Beehive_PNG_-_Free_Download-removebg-preview.png' %}"  class="img" alt="">
+            </section>
+
         </div>
-    </a>
 
-    <hr>
 
-    <a href="#" class="container-fluid">
-        <div class="container-fluid post2">
-            <img src="{% static 'imagens/images.jpg' %}" alt="imagem" class="figure-img img-fluid rounded">
-
-            <div class="container">
-                <h3>O que é a Flora Apícola?</h3>
-                <p>Flora Apícola: Plantas que fornecem néctar e pólen para as abelhas.</p>
-            </div>
+        <div class="login">
+            <a href="">Login</a>
+            <a href="">Cadastro</a>
         </div>
-    </a>
+    </div>
 
-    <hr>
 
-    <a href="#" class="container-fluid">
-        <div class="container-fluid post3">
-            <img src="{% static 'imagens/fazenda-apicultura.jpg' %}" alt="imagem" class="figure-img img-fluid rounded">
-            
-            <div class="container">
-                <h3>Flora no Rio Grande do Norte</h3>
-                <p>O estado possui variedade de plantas adaptadas ao clima semiárido.</p>
-            </div>
-        </div>
-    </a>
+    <div class="cacto">
+        <img src="{% static 'imagens/Rectangle_65-removebg-preview.png' %}" alt="" class="img">
+        <section>
+            <h2>O catálogo <strong>DiversiFlora</strong> valoriza a Flora Potiguar</h2>
+            <p>Acreditamos que a região semiárida é amplamente  rica no que concerne a variedade de 
+                plantas que produzem pólen e nectar que serão utilizado pelas abelhas  para produção de mel.</p>
+        </section>
+    </div>
+
+    <div class="aqui">
+        <h2>Aqui você irá encontrar a diversidade de</h2>
+        <h2>plantas que compõem a  flora apícola da nossa região</h2>
+    </div>
+
+    <div class="acess">
+        <a class="acesso" href="{% url 'listagem' %}">Acessar Catalogo</a>
+    </div>
 </main>
 
 {% endblock %}

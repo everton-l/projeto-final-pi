@@ -1,40 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/detalhe.css' %}">
+{% endblock %}
 {% block center %}
 
 <a href="{% url 'index' %}" class="btn btn-dark">Voltar</a>
 
-    <main>
-        <div class="center">
-            <img src="{{ flor.imagem.url }}" alt="" width="350px"  class="img-fluid">
-            <table class="table table-dark table-striped">
-                <tr>
-                    <td>Nome científico:</td> 
-                    <td>{{ flor.nome_cientifico }}</td>
-                </tr>
-
-                <tr>
-                    <td>Nome popular:</td> 
-                    <td>{{ flor.nome_popular }}</td>
-                </tr>
-
-                <tr>
-                    <td>Família:</td> 
-                    <td>{{ flor.familia }}</td>
-                </tr>
-
-                <tr>
-                    <td>Bioma:</td> 
-                    <td>{{ flor.bioma }}</td>
-                </tr>
-
-                <tr>
-                    <td>Descrição:</td>
-                    <td>{{ flor.descricao }}</td>
-                </tr>
-            </table>
-                
+<main>
+    <div class="card" style="width: 18rem;">
+        <img src="{{ flor.imagem.url }}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">{{ flor.nome_popular }}</h5>
+          <p class="card-text">{{ flor.descricao }}</p>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Nome ciêntifico: {{ flor.nome_cientifico }}</li>
+          <li class="list-group-item">Nome popular: {{ flor.nome_popular }}</li>
+          <li class="list-group-item">Familia: {{ flor.familia }}</li>
+          <li class="list-group-item">Bioma: {{ flor.bioma }}</li>
+        </ul>
+      </div>
+    
+</main>
 
 {% endblock %}
