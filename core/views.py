@@ -17,7 +17,7 @@ class FlorListar(ListView):
     model = Flores
     template_name = 'flores.html'
     context_object_name = 'flor'
-    paginate_by = 2
+    paginate_by = 3
 
 class FlorDetalhe(DetailView):
     model = Flores
