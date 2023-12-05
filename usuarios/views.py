@@ -7,19 +7,21 @@ def login_view(request):
     if request.method == 'POST':
         login_form = LoginForm(request.POST)
         if login_form.is_valid():
-            print("Valid login")
             user = authenticate(username=login_form.cleaned_data['username'],
                                 password=login_form.cleaned_data['password'])
-            print(user)
+            print(login_form.data)
             if user is not None:
                 login(request, user)
+
+                if user.get_username() == "admin":
+                        return redirect('listagem')
+
                 return redirect('index')
-
-
+    
     else:
         login_form = LoginForm()
 
-    context = {'login_form': login_form}
+    context = {'form': login_form}
     return render(request, 'users/login.html', context)
 
 def logout_view(request):

@@ -23,8 +23,8 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', login_required(views.IndexView.as_view()), name='index'),
-    path('listagem-flores/', login_required(views.FlorListar.as_view()), name='listagem'),
+    path('', views.IndexView.as_view(), name='index'),
+    path('listagem-flores/', views.FlorListar.as_view(), name='listagem'),
     path('detalhe/<int:pk>/', views.FlorDetalhe.as_view(), name='detalhe'),
     path('form/', views.PostagemCriar.as_view(), name='form'),
     path('accounts/',include('usuarios.urls')),
