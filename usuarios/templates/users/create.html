@@ -1,13 +1,45 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">
+{% endblock %}
 {% block center %}
 
 <div class="container">
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Criar usuário">
+        <div class="form">
+            <section>
+                <label for="id_username">Nome:</label>
+                <input type="text" name="username" id="id_username">
+            </section>
+
+            <section>
+                <label for="id_email">Email:</label>
+                <input type="text" name="email" id="id_email">
+            </section>
+
+            <section>
+                <label for="id_password1">Senha:</label>
+                <input type="password" name="password1" id="id_password1">
+            </section>
+
+            <section>
+                <label for="id_password2">Repita:</label>
+                <input type="password" name="password2" id="id_password2">
+            </section>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Criar Usuario</button>
+    </form>
+</div>
+
+        <ul>
+            <li>Sua senha não pode ser muito semelhante às suas outras informações pessoais.</li>
+            <li>Sua senha deve conter pelo menos 8 caracteres.</li>
+            <li>Sua senha não pode ser uma senha comumente usada.</li>
+            <li>Sua senha não pode ser totalmente numérica.</li>
+        </ul>   
     </form>
 </div>
 

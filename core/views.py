@@ -57,3 +57,8 @@ class PostagemCriar(CreateView):
     
     def get_success_url(self):
         return reverse_lazy('postagem_listar')
+
+class AdminList(ListView):
+    model = Flores
+    template_name = 'list-forms.html'
+    context_object_name = 'flor'

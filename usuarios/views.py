@@ -12,11 +12,10 @@ def login_view(request):
             print(login_form.data)
             if user is not None:
                 login(request, user)
-
                 if user.get_username() == "admin":
-                        return redirect('listagem')
+                        return redirect('admin')
 
-                return redirect('index')
+                return redirect('listagem')
     
     else:
         login_form = LoginForm()
@@ -32,7 +31,7 @@ def create_user(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            user = form.save(commit=False)
             user.is_active = True
             user.is_staff = True
             user.save()

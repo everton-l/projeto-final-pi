@@ -1,13 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 {% block center %}
 
 <div class="container">
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
+        <div class="form">
+            <section>
+                <label for="id_username">Nome:</label>
+                <input type="text" name="username" id="id_username">
+            </section>
+
+            <section>
+                <label for="id_password">Senha:</label>
+                <input type="password" name="password" id="id_password">
+            </section>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Login</button>
     </form>
 </div>
 

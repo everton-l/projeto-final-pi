@@ -26,6 +26,8 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('listagem-flores/', views.FlorListar.as_view(), name='listagem'),
     path('detalhe/<int:pk>/', views.FlorDetalhe.as_view(), name='detalhe'),
-    path('form/', views.PostagemCriar.as_view(), name='form'),
+    path('form/', login_required(views.PostagemCriar.as_view()), name='postagem-form'),
+    path('form/', login_required(views.FlorCriar.as_view()), name='flor-form'),
+    path('forms/', login_required(views.AdminList.as_view()), name='admin'),
     path('accounts/',include('usuarios.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
