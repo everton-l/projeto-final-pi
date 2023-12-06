@@ -25,8 +25,4 @@ class Flores(models.Model):
     imagem = models.ImageField(upload_to='image')
     descricao = models.CharField(max_length=255, blank=True)
 
-class Abelhas(models.Model):
-    nome_cientifico = models.CharField(max_length=200)
-    nome_popular = models.CharField(max_length=200)
-    imagem = models.ImageField(upload_to='image')
-    descricao = models.CharField(max_length=255, blank=True)    
+   

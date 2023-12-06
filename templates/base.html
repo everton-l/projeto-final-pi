@@ -18,6 +18,24 @@
             <h2>DiversiFlora</h2>
         </div>
 
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                {% if user.is_authenticated %}
+                    <div class="user">
+                        <img src="{% static 'imagens/imagem-user.png' %}" alt="">
+                        <span>{{ user.username }}</span>
+                        <a class="nav-link" href="{% url 'logout' %}">Sair</a>
+                    </div>
+                {% else %}
+                    <div class="user">
+                        <img src="{% static 'imagens/imagem-user.png' %}" alt="">
+                        <a class="nav-link" href="{% url 'logout' %}">Usuário</a>
+                    </div>
+                {% endif %}
+    
+            </li>
+        </ul>
+
         <nav>
             <ul>
                 <a class="a" href="{% url 'listagem' %}"><li class="nav-link active"></li>Catalogo</a>
@@ -26,10 +44,12 @@
             </ul>
         </nav>
 
-        <div class="search">
-            <input class="form-control me-2" type="text" id="search" placeholder="Pesquisar">
-            <img src="{% static 'imagens/lupa.png' %}" alt="" width="26px" height="27">
-        </div>
+        <form method="get" action="{% url 'listagem' %}" class="search">
+            <input class="form-control me-2" type="text" id="search" name="search_query" placeholder="Pesquisar" value="{{ search_form.search_query.value|default:'' }}">
+            <button type="submit">
+                <img src="{% static 'imagens/lupa.png' %}" alt="" width="26px" height="27">
+            </button>
+        </form> 
 
 
     </header>

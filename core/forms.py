@@ -1,5 +1,5 @@
 from django import forms
-from .models import Postagem, Flores, Abelhas
+from .models import Postagem, Flores
 
 class PostagemForm(forms.ModelForm):
     class Meta:
@@ -24,3 +24,7 @@ class FlorForm(forms.ModelForm):
             'descricao': forms.Textarea(attrs={'class': 'form-control'}),
             'imagem': forms.FileInput(attrs={'class': 'form-control'}),
         }
+
+
+class FlorSearchForm(forms.Form):
+    search_query = forms.CharField(label='Pesquisar', max_length=100, required=False)
