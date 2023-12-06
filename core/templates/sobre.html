@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/sobre.css' %}">
+{% endblock %}
+
+{% block center %}
+
+<main>
+    <h1>Objetivos</h1>
+
+    <div class="div">
+        <section>
+            <p>O objetivo principal deste projeto é desenvolver um sistema gratuito que destaque a diversidade da flora 
+                apícola na região semiárida do Rio Grande do Norte, visando disseminar conhecimento.  Para isso, desenvolvêmos 
+                funcionalidades que beneficiarão tanto os alunos do curso de Apicultura do Campus Pau dos Ferros quanto a 
+                comunidade em geral, proporcionando um ambiente de consulta.</p>
+        
+            <p>Assim, o site incluirá informações abrangentes sobre a flora apícola regional, facilitando o 
+                acesso ao conhecimento e promovendo a divulgação educacional.</p>
+        </section>
+
+        <img src="{% static 'imagens/Rectangle 79.png' %}" class="img" alt="">
+    </div>
+
+    <h1>Quem somos nós</h1>
+
+    <div class="div">
+        <img src="{% static 'imagens/Rectangle 75.png' %}" class="img" alt="">
+
+        <section>
+            <p>Nós somos alunos do IFRN campus Pau dos Ferros e desenvolvemos este projeto 
+                como trabalho de conclusão do curso de informática, sob a orientação do Prof. Thiago Henrique e 
+                coorientação do professor de Biologia, Leonardo.</p>
+
+            <div>
+                <p>Desenvolvedores:</p>
+
+                <div class="dev">
+                    <section class="devs">
+                        <img src="{% static 'imagens/Ellipse 2.png' %}"  class="img" alt="">
+                        <p class="nome">Everton Luidy</p>
+                    </section>
+                    <section class="devs">
+                        <img src="{% static 'imagens/Ellipse 1.png' %}" class="img" alt="">
+                        <p class="nome">Marisa Tainá</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+{% endblock %}

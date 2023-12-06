@@ -29,5 +29,6 @@ urlpatterns = [
     path('form/', login_required(views.PostagemCriar.as_view()), name='postagem-form'),
     path('form/', login_required(views.FlorCriar.as_view()), name='flor-form'),
     path('forms/', login_required(views.AdminList.as_view()), name='admin'),
+    path('sobre/', views.sobre, name='sobre'),
     path('accounts/',include('usuarios.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

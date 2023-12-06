@@ -62,3 +62,6 @@ class AdminList(ListView):
     model = Flores
     template_name = 'list-forms.html'
     context_object_name = 'flor'
+
+def sobre(request):
+    return render(request, 'sobre.html')
