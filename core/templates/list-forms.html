@@ -1,9 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}
 
 {% block center %}
 
-<a href="{% url 'flor-form' %}">Flores</a>
-<a href="{% url 'postagem-form' %}">Postagens</a>
+<h1>Listagem de Flores e Postagens</h1>
+
+<h2>Itens</h2>
+<ul class="ul">
+    {% for item in itens %}
+        <li>
+            {% if item.nome_popular %}
+                Flor: {{ item.nome_popular }}
+                <a href="{% url 'flor-editar' pk=item.id %}">Editar</a>
+                <a href="{% url 'flor-remover' pk=item.id %}">Excluir</a>
+            {% elif item.titulo %}
+                Postagem: {{ item.titulo }}
+                <a href="{% url 'post-editar' pk=item.id %}">Editar</a>
+                <a href="{% url 'post-remover' pk=item.id %}">Excluir</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
 
 {% endblock %}

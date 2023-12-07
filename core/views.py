@@ -43,10 +43,10 @@ class FlorDetalhe(DetailView):
 class FlorCriar(CreateView):
     template_name = 'form-flor.html'
     form_class = FlorForm
-    success_url = reverse_lazy('flor_listar')
+    success_url = reverse_lazy('admin')
     
     def get_success_url(self):
-        return reverse_lazy('flor_listar')
+        return reverse_lazy('admin')
 
 class FlorEditar(UpdateView):
     model = Flores
@@ -55,11 +55,11 @@ class FlorEditar(UpdateView):
     pk_url_kwarg = 'pk' 
     
     def get_success_url(self):
-        return reverse_lazy('flor_listar')
+        return reverse_lazy('admin')
 
 class FlorRemover(DeleteView):
     model = Flores
-    success_url = reverse_lazy('flor_listar')
+    success_url = reverse_lazy('admin')
     pk_url_kwarg = 'pk'
 
     def get(self, *args, **kwargs):
@@ -73,10 +73,10 @@ class PostagemListar(ListView):
 class PostagemCriar(CreateView):
     template_name = 'form-postagem.html'
     form_class = PostagemForm
-    success_url = reverse_lazy('postagem_listar')
+    success_url = reverse_lazy('admin')
     
     def get_success_url(self):
-        return reverse_lazy('postagem_listar')
+        return reverse_lazy('admin')
 
 class PostagemEditar(UpdateView):
     model = Postagem
@@ -85,20 +85,33 @@ class PostagemEditar(UpdateView):
     pk_url_kwarg = 'pk' 
     
     def get_success_url(self):
-        return reverse_lazy('postagem_listar')
+        return reverse_lazy('admin')
 
 class PostagemRemover(DeleteView):
     model = Postagem
-    success_url = reverse_lazy('postagem_listar')
+    success_url = reverse_lazy('admin')
     pk_url_kwarg = 'pk'
 
     def get(self, *args, **kwargs):
         return self.delete(*args, **kwargs)
 
 class AdminList(ListView):
-    model = Flores
     template_name = 'list-forms.html'
-    context_object_name = 'flor'
+    context_object_name = 'itens'
+
+    def get_queryset(self):
+        flores = Flores.objects.all()
+        postagens = Postagem.objects.all()
+        return list(flores) + list(postagens)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['flor'] = Flores.objects.all()
+        context['post'] = Postagem.objects.all()
+        return context
+
+def negado(request):
+    return render(request, 'negado.html')
 
 def sobre(request):
     return render(request, 'sobre.html')

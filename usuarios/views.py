@@ -14,6 +14,9 @@ def login_view(request):
                 login(request, user)
                 if user.get_username() == "admin":
                         return redirect('admin')
+                
+                elif user.get_username() != "admin": 
+                    return redirect('negado')
 
                 return redirect('listagem')
     
@@ -25,7 +28,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('index')
 
 def create_user(request):
     if request.method == 'POST':

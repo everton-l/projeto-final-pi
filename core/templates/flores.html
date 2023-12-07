@@ -13,7 +13,7 @@
               {% for flor in flor %}
                 <div class="list">
                     <a href="{% url 'flor-detalhe' pk=flor.id %}" class="link">
-                        <img src="{{ flor.imagem.url }}" alt="" width="250px">
+                        <img src="{{ flor.imagem.url }}" alt="">
                         <h3>{{ flor.nome_popular }}</h3>
                     </a>
                 </div>

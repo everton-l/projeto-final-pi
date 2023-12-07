@@ -34,5 +34,6 @@ urlpatterns = [
     path('postagem/remover/<int:pk>/', login_required(views.PostagemRemover.as_view()), name='post-remover'),
     path('administração/', login_required(views.AdminList.as_view()), name='admin'),
     path('sobre/', views.sobre, name='sobre'),
+    path('negado/', views.negado, name="negado"),
     path('accounts/',include('usuarios.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

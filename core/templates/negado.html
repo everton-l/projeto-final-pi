@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block center %}
+
+<h1>PERMISSÃO NEGADA</h1>
+<h3>Você não tem acesso para acessar esta pagina</h3>
+
+<a href="{% url 'index' %}">voltar</a>
+
+{% endblock %}
