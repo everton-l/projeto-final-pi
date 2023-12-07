@@ -5,7 +5,7 @@ from django.db import models
 
 class Postagem(models.Model):
     titulo = models.CharField(max_length=10)
-    imagem = models.ImageField(blank=True)
+    imagem = models.ImageField(upload_to='image', blank=True)
     texto = models.CharField(max_length=500, null=True)
 
     def __str__(self) -> str:

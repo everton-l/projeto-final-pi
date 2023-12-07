@@ -1,12 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/listagem.css' %}">
+<link rel="stylesheet" href="{% static 'css/flora.css' %}">
 {% endblock %}
 
 
 {% block center %}
 
+<h1>Flora Apícola</h1>
 
+<p class="p1">A flora apícola refere-se ao conjunto de plantas que desempenham um papel crucial na 
+    produção de néctar e pólen, fundamentais para a atividade das abelhas. Essas plantas, contribuem 
+    para a diversidade e abundância de recursos alimentares necessários para a saúde e o desenvolvimento 
+    das colônias de abelhas.</p>
+
+<p>A importância dessa  flora é diversa. Primeiramente, ela sustenta a produção de mel, pois o 
+    néctar das flores é a matéria-prima essencial para esse processo. Além disso, as abelhas 
+    desempenham um papel vital na polinização das plantas, promovendo a reprodução e a formação de 
+    frutos. Assim, a flora apícola não apenas beneficia as abelhas, mas também contribui para a biodiversidade 
+    e a produção agrícola, destacando sua relevância tanto para o ecossistema como para a sociedade.</p>
+
+<h1>Regional</h1>
+
+<div class="div">
+    <img src="{% static 'imagens/Rectangle 80.png' %}" alt="">
+    <p class="p2">A flora de manifesta de forma diferente em cada região, pois está reelacionada a um 
+        determinado clima. Assim, na região potiguar ela apresenta uma diversidade de plantas adaptadas 
+        ao clima semiárido, que é marcado por altas temperaturas e escassez de chuva.  Essa adaptação 
+        à aridez da região contribui para a produção de mel e a manutenção das colônias.</p>
+</div>
+
+{% for flora in flora %}
+
+<h3>{{ flora.titulo }}</h3>
+<div>
+    <img src="{{ flora.imagem.url }}" alt="">
+    <p>{{ flora.texto }}</p>
+</div>
+<hr>
+
+{% endfor %}
 
 {% endblock %}

@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm, UserForm
 
 # Create your views here.
+
 def login_view(request):
     if request.method == 'POST':
         login_form = LoginForm(request.POST)
@@ -13,13 +14,11 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 if user.get_username() == "admin":
-                        return redirect('admin')
+                    return redirect('admin')
                 
-                elif user.get_username() != "admin": 
-                    return redirect('negado')
+                else:
+                    return redirect('listagem')
 
-                return redirect('listagem')
-    
     else:
         login_form = LoginForm()
 

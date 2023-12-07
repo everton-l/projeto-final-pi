@@ -6,20 +6,33 @@
 
 {% block center %}
 
-<h1>Listagem de Flores e Postagens</h1>
+<h1>Flores e Postagens</h1>
 
-<h2>Itens</h2>
+<div class="add">
+    <a class="btn btn-success" href="{% url 'flor-criar' %}">Adicionar Flor</a>
+    <a class="btn btn-success" href="{% url 'postagem-criar' %}">Adicionar Postagem</a>
+</div>
 <ul class="ul">
     {% for item in itens %}
-        <li>
+        <li class="li">
             {% if item.nome_popular %}
-                Flor: {{ item.nome_popular }}
-                <a href="{% url 'flor-editar' pk=item.id %}">Editar</a>
-                <a href="{% url 'flor-remover' pk=item.id %}">Excluir</a>
+                <div class="crud">
+                    <h3>{{ item.nome_popular }}</h3>
+                    <div>
+                        <a class="btn btn-outline-primary" href="{% url 'flor-editar' pk=item.id %}">Editar</a>
+                        <a class="btn btn-outline-danger" href="{% url 'flor-remover' pk=item.id %}" >Excluir</a>
+                    </div>
+                </div>
+                <hr>
             {% elif item.titulo %}
-                Postagem: {{ item.titulo }}
-                <a href="{% url 'post-editar' pk=item.id %}">Editar</a>
-                <a href="{% url 'post-remover' pk=item.id %}">Excluir</a>
+                <div class="crud">
+                    <h3>{{ item.titulo }}</h3>
+                    <div>
+                        <a class="btn btn-outline-primary" href="{% url 'post-editar' pk=item.id %}">Editar</a>
+                        <a class="btn btn-outline-danger" href="{% url 'post-remover' pk=item.id %}">Excluir</a>
+                    </div>
+                </div>
+                <hr>
             {% endif %}
         </li>
     {% endfor %}
