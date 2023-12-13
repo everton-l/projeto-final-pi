@@ -18,8 +18,8 @@
             <h2>DiversiFlora</h2>
         </div>
 
-        <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap">
+        <ul class="ul-user">
+            <li>
                 {% if user.is_authenticated %}
                     <div class="user">
                         <img src="{% static 'imagens/imagem-user.png' %}" alt="">
@@ -38,9 +38,10 @@
 
         <nav>
             <ul>
-                <a class="a" href="{% url 'listagem' %}"><li class="nav-link active"></li>Catalogo</a>
-                <a class="a" href="{% url 'flora' %}"><li class="nav-link active"></li>Flora apícola</a>
-                <a class="a" href="{% url 'sobre' %}"><li class="nav-link active"></li>Sobre nós</a>
+                <a class="a" href="{% url 'index' %}"><li class="nav-link active">Início</li></a>
+                <a class="a" href="{% url 'listagem' %}"><li class="nav-link active">Catalogo</li></a>
+                <a class="a" href="{% url 'flora' %}"><li class="nav-link active">Flora apícola</li></a>
+                <a class="a" href="{% url 'sobre' %}"><li class="nav-link active">Sobre nós</li></a>
             </ul>
         </nav>
 
@@ -60,9 +61,9 @@
     <footer>
         <nav>
             <ul>
-                <a href="{% url 'listagem' %}"><li>Catalogo</li></a>
-                <a href=""><li>Flora Apícola</li></a>
-                <a href=""><li>Sobre nós</li></a>
+                <a class="a" href="{% url 'listagem' %}"><li>Catalogo</li></a>
+                <a class="a" href="{% url 'flora' %}"><li>Flora Apícola</li></a>
+                <a class="a" href="{% url 'sobre' %}"><li>Sobre nós</li></a>
             </ul>
         </nav>
     </footer>

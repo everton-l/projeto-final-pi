@@ -7,7 +7,7 @@ body{
 
 header{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
     max-height: 20vh;
@@ -26,17 +26,10 @@ footer{
     margin: 40px 0px 0px 0px;
 }
 
-a > li{
+li{
     list-style: none;
 }
 
-ul > a:hover{
-    opacity: 0.8;
-    color: white;
-    background-color: rgba(50, 35, 21, 1);
-    border-radius: 10px;
-    padding: 4px 10px;
-}
 
 .init{
     height: 80%;
@@ -95,24 +88,13 @@ a{
     margin-right: 10px;
 }
 
-h1{
-    font-size: 3.5vw;
-    font-weight: bold;
-    color: rgba(50, 35, 21, 1);
-    width: 75%;
-}
-
 h2{
     font-size: 2.5vw;
 }
 
-p{
-    font-size: 1.5vw;
-    margin: 70px 0px;
-}
-
-.flora{
-    color: rgba(240, 161, 15, 1);
+h2{
+    width: 300px;
+    font-size: 30px;
 }
 
 .login{
@@ -136,11 +118,6 @@ p{
     opacity: 0.9;
 }
 
-h2{
-    width: 300px;
-    font-size: 30px;
-}
-
 section > img{
     width: 100%;
 }
@@ -157,14 +134,12 @@ footer > nav > ul{
     justify-content: flex-start;
 }
 
-ul > a{
-    margin: 5px 15px;
-    font-size: 20px;
-}
-
 .a{
     border-radius: 15px;
     padding: 5px 4px;
+    margin: 0 10px;
+    font-size: 20px;
+    height: 30%;
 }
 
 .a:hover{
@@ -192,51 +167,6 @@ nav{
     width: 80%;
 }
 
-.cacto > img{
-    width: 25vw;
-}
-
-.cacto > section{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-h2 > strong{
-    color: rgba(240, 161, 15, 1);
-}
-
-.aqui{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 40px 0px;
-}
-
-.aqui > h2{
-    width: 50%;
-    text-align: center;
-}
-
-.acesso{
-    background-color: rgba(50, 35, 21, 1);
-    color: white;
-    font-size: 2.5vw;
-    padding: 15px 75px;
-    border-radius: 20px;
-}
-
-.acess{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.acess:hover{
-    opacity: 0.9;
-}
-
 .user{
     display: flex;
     align-items: center;
@@ -244,6 +174,7 @@ h2 > strong{
     background-color: rgba(243, 242, 213, 1);
     border-radius: 20px;
     justify-content: space-around;
+    margin: 0%;
 }
 
 .user > img{

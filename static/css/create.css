@@ -41,4 +41,15 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 0 7% 0;
+    padding: 0%;
+}
+
+h3{
+    text-align: center;
+    margin: 10px 0;
+}
+
+ul{
+    display: flex;
 }
