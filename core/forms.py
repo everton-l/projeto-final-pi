@@ -1,5 +1,5 @@
 from django import forms
-from .models import Postagem, Flores
+from .models import Postagem, Flores, Comentario
 
 class PostagemForm(forms.ModelForm):
     class Meta:
@@ -24,6 +24,11 @@ class FlorForm(forms.ModelForm):
             'descricao': forms.Textarea(attrs={'class': 'form-control'}),
             'imagem': forms.FileInput(attrs={'class': 'form-control'}),
         }
+
+class ComentarioForm(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields = ['texto']
 
 
 class FlorSearchForm(forms.Form):

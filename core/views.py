@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Flores, Postagem
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Flores, Postagem, Comentario
 from django.views.generic import TemplateView, UpdateView, CreateView, DeleteView, ListView, DetailView
 from django.urls import reverse_lazy
-from .forms import PostagemForm, FlorForm, FlorSearchForm
+from .forms import PostagemForm, FlorForm, FlorSearchForm, ComentarioForm
+from django.db.models import Q
 
 # Create your views here.
 
@@ -26,7 +27,9 @@ class FlorListar(ListView):
         if form.is_valid():
             search_query = form.cleaned_data.get('search_query')
             if search_query:
-                queryset = queryset.filter(nome_popular__icontains=search_query)
+                queryset = queryset.filter(
+                    Q(nome_popular__icontains=search_query) | Q(nome_cientifico__icontains=search_query)
+                )
 
         return queryset
 
@@ -39,6 +42,12 @@ class FlorDetalhe(DetailView):
     model = Flores
     template_name = 'detalhe.html'
     context_object_name = 'flor'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comentarios'] = Comentario.objects.filter(flor=self.object)
+        context['comentario_form'] = ComentarioForm()
+        return context
 
 class FlorCriar(CreateView):
     template_name = 'form-flor.html'
@@ -115,3 +124,25 @@ def negado(request):
 
 def sobre(request):
     return render(request, 'sobre.html')
+
+def adicionar_comentario(request, pk):
+    flor = get_object_or_404(Flores, pk=pk)
+    if request.method == 'POST':
+        form = ComentarioForm(request.POST)
+        if form.is_valid():
+            comentario = form.save(commit=False)
+            comentario.flor = flor
+            comentario.usuario = request.user
+            comentario.save()
+            return redirect('flor-detalhe', pk=pk)  # Redireciona para a página de detalhe da flor
+    else:
+        form = ComentarioForm()
+    
+    comentarios = Comentario.objects.filter(flor=flor)
+    return render(request, 'detalhe.html', {'flor': flor, 'comentarios': comentarios, 'comentario_form': form})
+
+def remover_comentario(request, pk_flor, pk_comentario):
+    flor = get_object_or_404(Flores, pk=pk_flor)
+    comentario = get_object_or_404(Comentario, pk=pk_comentario, usuario=request.user)
+    comentario.delete()
+    return redirect('flor-detalhe', pk=pk_flor)

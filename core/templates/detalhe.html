@@ -8,20 +8,46 @@
 <a class="btn btn-dark" href="{% url 'listagem' %}">Voltar</a>
 
 <main>
-    <div class="card" style="width: 18rem;">
-        <img src="{{ flor.imagem.url }}" class="card-img-top" alt="">
-        <div class="card-body">
+  <div class="card" style="width: 18rem;">
+      <img src="{{ flor.imagem.url }}" class="card-img-top" alt="">
+      <div class="card-body">
           <h5 class="card-title">{{ flor.nome_popular }}</h5>
           <p class="card-text">{{ flor.descricao }}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Nome ciêntifico: {{ flor.nome_cientifico }}</li>
-          <li class="list-group-item">Nome popular: {{ flor.nome_popular }}</li>
-          <li class="list-group-item">Familia: {{ flor.familia }}</li>
-          <li class="list-group-item">Bioma: {{ flor.bioma }}</li>
-        </ul>
       </div>
-    
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item">Nome científico: {{ flor.nome_cientifico }}</li>
+          <li class="list-group-item">Nome popular: {{ flor.nome_popular }}</li>
+          <li class="list-group-item">Família: {{ flor.familia }}</li>
+          <li class="list-group-item">Bioma: {{ flor.bioma }}</li>
+      </ul>
+  </div>
+
+  <section>
+      {% for comentario in comentarios %}
+          <div class="comentario">
+              <p>{{ comentario.texto }}</p>
+              <small>{{ comentario.usuario.username }} em {{ comentario.data_criacao }}</small>
+              {% if comentario.usuario == user %}
+                  <form method="post" action="{% url 'remover_comentario' flor.pk comentario.pk %}">
+                      {% csrf_token %}
+                      <button type="submit">Apagar</button>
+                  </form>
+              {% endif %}
+          </div>
+      {% endfor %}
+
+      {% if user.is_authenticated %}
+          <form method="post" action="{% url 'adicionar_comentario' flor.pk %}">
+              {% csrf_token %}
+              <label for="{{ comentario_form.texto.id_for_label }}"></label>
+              {{ comentario_form.texto }}
+              
+              <button type="submit">Comentar</button>
+          </form>
+      {% else %}
+          <p>Faça login para adicionar um comentário.</p>
+      {% endif %}
+  </section>
 </main>
 
 {% endblock %}

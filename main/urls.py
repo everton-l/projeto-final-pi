@@ -21,12 +21,15 @@ from django.conf import settings
 from core import views
 from django.contrib.auth.decorators import login_required
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name='index'),
     path('flor/', views.FlorListar.as_view(), name='listagem'),
     path('flor/editar/<int:pk>/', login_required(views.FlorEditar.as_view()), name='flor-editar'),
     path('flor/detalhe/<int:pk>/', views.FlorDetalhe.as_view(), name='flor-detalhe'),
+    path('flor/adicionar_comentario/<int:pk>/', views.adicionar_comentario, name='adicionar_comentario'),
+    path('flor/remover_comentario/<int:pk_flor>/<int:pk_comentario>/', login_required(views.remover_comentario), name='remover_comentario'),
     path('flor-remover/<int:pk>/', login_required(views.FlorRemover.as_view()), name='flor-remover'),
     path('form-flor/', login_required(views.FlorCriar.as_view()), name='flor-criar'),
     path('form-post/', login_required(views.PostagemCriar.as_view()), name='postagem-criar'),
