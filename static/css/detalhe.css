@@ -115,6 +115,7 @@ ul > a{
 .a{
     border-radius: 15px;
     padding: 5px 4px;
+    height: 70%;
 }
 
 .a:hover{
@@ -135,4 +136,35 @@ nav{
 
 #id_texto{
     height: 5vh;
+}
+section{
+    border: 1px solid black;
+    border-radius: 15px;
+    height: 70vh;
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comentario{
+    max-height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.comentario > p, .comentario > small{
+    margin: 3% 2%;
+}
+
+.coment{
+    display: flex;
+    width: 100%;
+}
+
+#id_texto{
+    height: 5vh;
+    border-radius: 15px;
 }

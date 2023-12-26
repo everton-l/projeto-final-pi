@@ -4,6 +4,7 @@ from django.views.generic import TemplateView, UpdateView, CreateView, DeleteVie
 from django.urls import reverse_lazy
 from .forms import PostagemForm, FlorForm, FlorSearchForm, ComentarioForm
 from django.db.models import Q
+from usuarios.permissions import GerentePermission
 
 # Create your views here.
 
@@ -49,7 +50,7 @@ class FlorDetalhe(DetailView):
         context['comentario_form'] = ComentarioForm()
         return context
 
-class FlorCriar(CreateView):
+class FlorCriar(GerentePermission,CreateView):
     template_name = 'form-flor.html'
     form_class = FlorForm
     success_url = reverse_lazy('admin')
@@ -57,7 +58,7 @@ class FlorCriar(CreateView):
     def get_success_url(self):
         return reverse_lazy('admin')
 
-class FlorEditar(UpdateView):
+class FlorEditar(GerentePermission,UpdateView):
     model = Flores
     form_class = FlorForm
     template_name = 'form-flor.html'
@@ -66,7 +67,7 @@ class FlorEditar(UpdateView):
     def get_success_url(self):
         return reverse_lazy('admin')
 
-class FlorRemover(DeleteView):
+class FlorRemover(GerentePermission,DeleteView):
     model = Flores
     success_url = reverse_lazy('admin')
     pk_url_kwarg = 'pk'
@@ -79,7 +80,7 @@ class PostagemListar(ListView):
     template_name = 'flora.html'
     context_object_name = 'flora'
 
-class PostagemCriar(CreateView):
+class PostagemCriar(GerentePermission,CreateView):
     template_name = 'form-postagem.html'
     form_class = PostagemForm
     success_url = reverse_lazy('admin')
@@ -87,7 +88,7 @@ class PostagemCriar(CreateView):
     def get_success_url(self):
         return reverse_lazy('admin')
 
-class PostagemEditar(UpdateView):
+class PostagemEditar(GerentePermission,UpdateView):
     model = Postagem
     form_class = PostagemForm
     template_name = 'form-postagem.html'
@@ -96,7 +97,7 @@ class PostagemEditar(UpdateView):
     def get_success_url(self):
         return reverse_lazy('admin')
 
-class PostagemRemover(DeleteView):
+class PostagemRemover(GerentePermission,DeleteView):
     model = Postagem
     success_url = reverse_lazy('admin')
     pk_url_kwarg = 'pk'
@@ -104,7 +105,7 @@ class PostagemRemover(DeleteView):
     def get(self, *args, **kwargs):
         return self.delete(*args, **kwargs)
 
-class AdminList(ListView):
+class AdminList(GerentePermission, ListView):
     template_name = 'list-forms.html'
     context_object_name = 'itens'
 

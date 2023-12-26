@@ -26,28 +26,28 @@
       {% for comentario in comentarios %}
           <div class="comentario">
               <p>{{ comentario.texto }}</p>
-              <small>{{ comentario.usuario.username }} em {{ comentario.data_criacao }}</small>
+              <small>{{ comentario.usuario.username }} - {{ comentario.data_criacao }}</small>
               {% if comentario.usuario == user %}
                   <form method="post" action="{% url 'remover_comentario' flor.pk comentario.pk %}">
                       {% csrf_token %}
-                      <button type="submit">Apagar</button>
+                      <button type="submit" class="btn btn-danger">Apagar</button>
                   </form>
               {% endif %}
           </div>
       {% endfor %}
 
       {% if user.is_authenticated %}
-          <form method="post" action="{% url 'adicionar_comentario' flor.pk %}">
-              {% csrf_token %}
-              <label for="{{ comentario_form.texto.id_for_label }}"></label>
-              {{ comentario_form.texto }}
-              
-              <button type="submit">Comentar</button>
-          </form>
+          <form method="post" action="{% url 'adicionar_comentario' flor.pk %}" class="coment">
+            {% csrf_token %}
+            <label for="id_texto"></label>
+            <textarea id="id_texto" name="texto" rows="4" cols="50"></textarea>
+            <button type="submit" class="btn btn-primary">Comentar</button>
+        </form>
       {% else %}
           <p>Faça login para adicionar um comentário.</p>
       {% endif %}
   </section>
+
 </main>
 
 {% endblock %}
