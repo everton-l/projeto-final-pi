@@ -30,18 +30,22 @@
         à aridez da região contribui para a produção de mel e a manutenção das colônias.</p>
 </div>
 
-{% for flora in flora %}
-  <h3>{{ flora.titulo }}</h3>
-  <div>
-    {% if flora.image %}
-      <img src="{{ flora.image.url }}" alt="">
-    {% else %}
-      <p>imagem não encontrada</p>
-    {% endif %}
-    <p>{{ flora.texto }}</p>
-  </div>
-  <hr>
-{% endfor %}
+<hr>
+
+<div class="posts">
+  {% for flora in flora %}
+    <h3>{{ flora.titulo }}</h3>
+    <div>
+      {% if flora.image %}
+        <img src="{{ flora.image.url }}" alt="">
+      {% else %}
+        <p>imagem não encontrada</p>
+      {% endif %}
+      <p>{{ flora.texto }}</p>
+    </div>
+    <hr>
+  {% endfor %}
+</div>
 
 
 {% endblock %}
