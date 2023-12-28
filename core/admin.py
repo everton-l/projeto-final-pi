@@ -3,7 +3,7 @@ from .models import Postagem, Bioma, Flores, Comentario
 # Register your models here.
 
 class PostagemAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'imagem', 'texto')
+    list_display = ('titulo', 'image', 'texto')
 
 class BiomaAdmin(admin.ModelAdmin):
     list_display = ('nome',)

@@ -6,9 +6,9 @@ class PostagemForm(forms.ModelForm):
         model = Postagem
         fields = '__all__'
         widgets = {
-            'titulo' : forms.TextInput(attrs={'class':'form-control'}),
-            'imagem' : forms.FileInput(attrs={'class':'form-control'}),
-            'texto' : forms.TextInput(attrs={'class':'form-control'})
+            'titulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'image': forms.FileInput(attrs={'class': 'form-control'}),
+            'texto': forms.TextInput(attrs={'class': 'form-control'})
         }
 
 

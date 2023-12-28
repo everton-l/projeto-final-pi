@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Postagem(models.Model):
     titulo = models.CharField(max_length=10)
-    imagem = models.ImageField(upload_to='image', blank=True)
+    image = models.ImageField(upload_to='image-post', blank=True)
     texto = models.CharField(max_length=500, null=True)
 
     def __str__(self) -> str:

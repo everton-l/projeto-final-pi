@@ -85,8 +85,6 @@ class PostagemCriar(GerentePermission,CreateView):
     form_class = PostagemForm
     success_url = reverse_lazy('admin')
     
-    def get_success_url(self):
-        return reverse_lazy('admin')
 
 class PostagemEditar(GerentePermission,UpdateView):
     model = Postagem
@@ -119,9 +117,6 @@ class AdminList(GerentePermission, ListView):
         context['flor'] = Flores.objects.all()
         context['post'] = Postagem.objects.all()
         return context
-
-def negado(request):
-    return render(request, 'negado.html')
 
 def sobre(request):
     return render(request, 'sobre.html')

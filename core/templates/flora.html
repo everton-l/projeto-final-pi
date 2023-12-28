@@ -31,14 +31,17 @@
 </div>
 
 {% for flora in flora %}
-
-<h3>{{ flora.titulo }}</h3>
-<div>
-    <img src="{{ flora.imagem.url }}" alt="">
+  <h3>{{ flora.titulo }}</h3>
+  <div>
+    {% if flora.image %}
+      <img src="{{ flora.image.url }}" alt="">
+    {% else %}
+      <p>imagem não encontrada</p>
+    {% endif %}
     <p>{{ flora.texto }}</p>
-</div>
-<hr>
-
+  </div>
+  <hr>
 {% endfor %}
+
 
 {% endblock %}
