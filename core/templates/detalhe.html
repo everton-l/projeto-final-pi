@@ -22,26 +22,30 @@
       </ul>
   </div>
 
-  <section>
-      {% for comentario in comentarios %}
-          <div class="comentario">
-              <p>{{ comentario.texto }}</p>
-              <small>{{ comentario.usuario.username }} - {{ comentario.data_criacao }}</small>
+  <section class="d-flex flex-column overflow-y-auto">
+      <div class="flew-grow-1">
+        {% for comentario in comentarios %}
+        <div class="comentario border-bottom py-4">
+            <div class="d-flex gap-2">
+                <p class="flex-grow-1">{{ comentario.texto }}</p>
               {% if comentario.usuario == user %}
-                  <form method="post" action="{% url 'remover_comentario' flor.pk comentario.pk %}">
-                      {% csrf_token %}
-                      <button type="submit" class="btn btn-danger">Apagar</button>
-                  </form>
+              <form method="post" action="{% url 'remover_comentario' flor.pk comentario.pk %}">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+              </form>   
               {% endif %}
-          </div>
-      {% endfor %}
-
+            </div>
+            <small class="text-muted">{{ comentario.usuario.username }} - {{ comentario.data_criacao }}</small>
+        </div>
+    {% endfor %}
+      </div>
       {% if user.is_authenticated %}
           <form method="post" action="{% url 'adicionar_comentario' flor.pk %}" class="coment">
             {% csrf_token %}
-            <label for="id_texto"></label>
-            <textarea id="id_texto" name="texto" rows="4" cols="50"></textarea>
-            <button type="submit" class="btn btn-primary">Comentar</button>
+            <div class="d-flex gap-2 w-100">
+                <textarea id="id_texto" name="texto" class="w-100"></textarea>
+                <button type="submit" class="btn btn-primary">Comentar</button>
+            </div>
         </form>
       {% else %}
           <p>Faça login para adicionar um comentário.</p>

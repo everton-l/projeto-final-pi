@@ -4,7 +4,7 @@
 {% block center %}
 
 <main id="form">
-    <form method="post" style="width: 50%; margin: auto;">
+    <form method="post" style="width: 50%; margin: auto;" enctype="multipart/form-data">
         {% csrf_token %}
 
         <div class="form-group">
@@ -13,7 +13,7 @@
         </div>
 
         <div class="form-group">
-            <label for="{{ form.imagem.id_for_label }}">Imagem:</label>
+            <label for="{{ form.image.id_for_label }}">Imagem:</label>
             {{ form.image }}
         </div>
 

@@ -91,8 +91,8 @@ h2{
 }
 
 p{
-    font-size: 1.5vw;
-    margin: 70px 0px;
+    /* font-size: 1.5vw; */
+    /* margin: 70px 0px; */
 }
 
 ul{
@@ -149,16 +149,16 @@ section{
 }
 
 .comentario{
-    max-height: 10vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    /* max-height: 10vh; */
+    /* width: 100%; */
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* align-items: center; */
 }
 
-.comentario > p, .comentario > small{
+/* .comentario > p, .comentario > small{
     margin: 3% 2%;
-}
+} */
 
 .coment{
     display: flex;
@@ -168,4 +168,8 @@ section{
 #id_texto{
     height: 5vh;
     border-radius: 15px;
+}
+
+.btn-dark{
+    margin-left: 3%;
 }
