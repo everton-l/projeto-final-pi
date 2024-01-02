@@ -21,7 +21,7 @@ class Flores(models.Model):
     nome_cientifico = models.CharField(max_length=200)
     nome_popular = models.CharField(max_length=200)
     familia = models.CharField(max_length=200)
-    bioma = models.ForeignKey(Bioma, on_delete=models.CASCADE)
+    bioma = models.ForeignKey(Bioma, on_delete=models.CASCADE, blank=True, null=True)
     imagem = models.ImageField(upload_to='image')
     descricao = models.CharField(max_length=255, blank=True)
 
