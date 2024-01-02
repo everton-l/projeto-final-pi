@@ -21,3 +21,15 @@ p{
     width: 90%;
     margin: auto;
 }
+
+.posts{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.posts > h3, .posts > p{
+    margin: 0 10px;
+    padding: 8px;
+}
+

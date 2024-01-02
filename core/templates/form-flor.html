@@ -4,7 +4,7 @@
 {% block center %}
 
 <main id="form">
-    <form method="post" style="width: 50%; margin: auto;">
+    <form method="post" enctype="multipart/form-data" style="width: 50%; margin: auto;">
         {% csrf_token %}
         {{ form.as_p }}
         <button class="btn btn-primary" type="submit">Enviar</button>

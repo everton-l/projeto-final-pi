@@ -170,7 +170,7 @@ nav{
 .user{
     display: flex;
     align-items: center;
-    width: 30%;
+    width: 40%;
     background-color: rgba(243, 242, 213, 1);
     border-radius: 20px;
     justify-content: space-around;

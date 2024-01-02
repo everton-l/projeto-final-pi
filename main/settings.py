@@ -82,8 +82,7 @@ DATABASES = {
         'NAME': 'floraapicola',
         'USER': 'postgres',
         'PASSWORD': '123456',
-        # 'HOST': 'postgres',
-        'HOST': 'localhost',
+        'HOST': 'postgres',
         'PORT': '5432',
     }
 }
